@@ -1,10 +1,15 @@
 
 var fs = require('fs');
+var path = require('path');
 
-var content = fs.readFile(process.argv[2], function callback(err,data) {
+var dir = fs.readdir(process.argv[2], function (err,list) {
 
-    if (!err) {
-        var breakcount = data.toString().split('\n').length - 1;
-        console.log(breakcount);
+    for(var i=0; i <list.length; i++) {
+
+        if ( path.extname(list[i]) === '.' + process.argv[3]) {
+            console.log(list[i]);
+        }
     }
 });
+
+
