@@ -1,9 +1,10 @@
 
-
 var fs = require('fs');
 
-var myfile = process.argv[2] || 'mytext.txt';
-var buffer = fs.readFileSync(myfile);
-var str = buffer.toString().split('\n').length - 1;
+var content = fs.readFile(process.argv[2], function callback(err,data) {
 
-console.log(breakcount);
+    if (!err) {
+        var breakcount = data.toString().split('\n').length - 1;
+        console.log(breakcount);
+    }
+});
