@@ -1,11 +1,8 @@
-// console.log(process.argv)
-
-var sum = 0;
-for (var i = 2; i < process.argv.length; i += 1) {
-    sum += +process.argv[i];
-}
-
-console.log(sum);
+var fs = require('fs')
 
 
+var buffer = fs.readFileSync(process.argv[2]);
+var strArray = buffer.toString().split('\n');
+
+console.log(strArray.length - 1);
 
